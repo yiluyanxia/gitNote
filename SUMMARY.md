@@ -3,11 +3,11 @@
 * [说在前面的话](README.md)
 * Angular
   * [angular初体验](Angular/angular初体验.md)
-  * [angular初体验](Angular/angular实操--基本原理（一）.md)
-  * [angular初体验](Angular/angular实操--路由routing（二）.md)
-  * [angular初体验](Angular/angular实操--taskmgmt笔记（三）.md)
-  * [angular初体验](Angular/和我一起入坑-Angular入门-ToDoList.md)
-  * [angular初体验](Angular/进击的angular.md)
+  * [angular实操--基本原理（一）](Angular/angular实操--基本原理（一）.md)
+  * [angular实操--路由routing（二）](Angular/angular实操--路由routing（二）.md)
+  * [angular实操--taskmgmt笔记（三）](Angular/angular实操--taskmgmt笔记（三）.md)
+  * [和我一起入坑-Angular入门-ToDoList](Angular/和我一起入坑-Angular入门-ToDoList.md)
+  * [进击的angular](Angular/进击的angular.md)
 * Javascript
   * [重新认识javaScript](Javascript/重新认识javaScript.md)
   * [JS记录--方法篇](Javascript/JS记录--方法篇.md)
