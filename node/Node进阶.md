@@ -1,5 +1,5 @@
 # Node进阶
-n
+
 
 ## Node的特定
 ++单线程   非阻塞I/O 事件机制++   
@@ -21,7 +21,10 @@ Node就是js的执行环境。
 Node没有根目录的概念，因为它根本没有任何的web容器。
 让他提供一个静态服务，非常难
 ++相对路径++  
-url和物理文件是没有关系的！！
+url和物理文件是没有关系的！！  
+Node就是repl环境
+read eval print loop  
+
 
 ## http
 Node中将很多功能划分为一个个mudule模块。
@@ -73,4 +76,65 @@ url中可以使用正则表达式或：(id)来表示未知的参数。
 推荐用：(id)
 
 ### 中间件
+如果我的get/post回调函数中，没有next参数，那么久匹配上第一个路由，就不会往下匹配了，如果想往下匹配的话，那么需要写next()。
+
+
+```js
+app.get("/",function(req,res,next){
+  console.log("1");
+  next();
+});
+app.get("/",function(req,res){
+  console.log("2");
+});
+```
+
+app.use()也是一个中间件。与get/post不同的是，他的网址不是精确匹配的。而是能够有小文件扩展的。比如 hhtp://127.0.0:3000/admin/aa/bb/cc/dd
+
+
+```js
+app.use("/admin",function(req,res){
+  res.write(req.originalUrl + "\n");  //  /admin/aa/bb/cc/dd
+  res.write(req.baseUrl + "\n");      //  /admin
+  res.write(req.path + "\n");         //  /aa/bb/cc/dd
+  
+})
+```
+
+
+### Cookie和Session
+HTTP是无状态协议。简单地说，当你浏览了一个页面，然后转到同一个网站的另一个页面，服务器无法认识到，这是同一个浏览器在访问同一个网站。每一次的访问，都是没有任何关系的。  
+Cookie是一个简单到爆的想法：当访问一个页面的时候，服务器在下行HTTP报文中，命令浏览器存储一个字符串；浏览器再访问同一个域的时候，将把这个字符串携带到上行HTTP请求中
+Session是特殊的Cookie
+
+### Mongoose
+是一个将js与数据库
+
+- 定义模型
+创建schema --> 定义一些schema的静态方法 --> 创建模型
+创建schema用说明语句？ new mongoose.schema({});
+创建模型用说明语句？  db.model("Student",schema名字);
+
+
+```js
+//创建了一个schema结构
+var studentSchema = new mongoose.Schema({
+    name : {type:String},
+    age : {type:Number},
+    sex : {type:String}
+})
+```
+
+```js
+//创建静态方法
+studentSchema.statics.findFun = function(name,callback){
+    this.model('Student').find({name:name},callback);
+};
+```
+
+```js
+//创建修改的静态方法
+
+
+```
 

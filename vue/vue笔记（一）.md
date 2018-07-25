@@ -6,7 +6,11 @@ npm -v
 npm install -g webpack   安装webpack
 
 
-npm install -g cnpm –registry=https://registry.npm.taobao.org   安装npm镜像
+npm install -g cnpm –registry=https://registry.npm.taobao.org   安装npm镜像（不要，直接cnpm会破坏目录结构  
+
+npm config set registry https://registry.npm.taobao.org     配置npm的registry地址（推荐使用这个）
+ 
+npm config get registry  配置后可通过下面方式来验证是否成功
 
 npm install -g vue-cli  
 

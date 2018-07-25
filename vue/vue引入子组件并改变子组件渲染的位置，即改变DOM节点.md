@@ -1,0 +1,23 @@
+## 前言
+故事发生在一个夜黑风高伸手不见脚趾的晚上，我封装好了一个弹窗组件，方便我在其他地方引用。弹窗我使用了position：absolute。而其父组件是fixed，且宽度固定，超出则隐藏。然后我的弹窗组件就悲剧了。然后就萌生了这样的想法，如何改变Dom节点的位置呢？第一步肯定找度娘~啦！毕竟国事找百度，外事找谷歌，房事找天涯。  
+可是我居然没有百度到 --，应该是我的关键字没表述清楚。
+然后就去找iview的源码，官网上的modal例子，发现他的是把modal组件放到了body结束标签之前！！好嗨森呐！！
+接下来就是下源码，看（抄就抄，还说看，呸，不要脸）源码！
+
+[iview modal](https://github.com/iview/iview/blob/2.0/src/directives/transfer-dom.js)
+> 
+```js
+// Thanks to: https://github.com/airyland/vux/blob/v2/src/directives/transfer-dom/index.js
+// Thanks to: https://github.com/calebroseland/vue-dom-portal
+```
+
+惊奇的小发现~~
+来来来，代码抄一波~~~
+
+1. 将transfer-dom.js文件的代码拷贝一份到封装好的组件里，这里大概的意思就是要定义一个指令。
+2. 在组件里引入文件，并局部定义一个指令。
+3. 然后就没有然后了！
+
+源码太过深奥，基本没看懂--  
+但是研究一下源码还是有必要的！！  
+记了跟没记一样~~

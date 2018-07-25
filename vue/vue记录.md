@@ -129,3 +129,161 @@ handleAvatarSuccess(res, file) {
 token写在manage-vuejs里  
 如何获取token浪费了好多时间  
 有空在看看官网！！
+
+## 使用vue-cli生产项目时chromedriver报错
+报错是因为与node5不兼容。可以使用node4.2.2代替（尤说的）  
+解决办法：
+npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver
+
+---
+## **vue父子组件通信**
+
+1. 父组件向子组件传值
+
+```html
+<template>
+    <div>
+        <h2>child子组件部分</h2>
+        <p>{{message}}</p>
+    </div>
+</template>
+<script>
+    export default{
+        props:["message"]
+    }
+</script>
+```
+
+```html
+<template>
+    <div>
+        <h2>父组件部分</h2>
+        <child :message="parentMsg"></child>
+    </div>
+</template>
+<script>
+import child from './components/child.vue'
+    export default{
+        components:{
+            child
+        },
+        data(){
+           return{
+                parentMsg:"hello,child"
+            } 
+        }
+        
+    }
+</script>
+```
+
+2. 子组件向父组件传值
+
+```html
+<template>
+    <div>
+        <h2>child子组件部分</h2>
+        <button @click="emitFun"></button>
+    </div>
+</template>
+<script>
+    export default{
+        methods: {
+            emitFun(){
+                this.$emit("toParent","toParentData")
+            }
+        }
+    }
+</script>
+```
+
+```html
+<template>
+    <div>
+        <h2>父组件部分</h2>
+        <child @toParent="toFun"></child>
+        <!--  weex需要这样写  -->
+        <!--  <child @toParent="toFun"></child>  -->
+    </div>
+</template>
+<script>
+import child from './components/child.vue'
+    export default{
+        components:{
+            child
+        },
+        methods:{
+            toFun(data){
+               console.log(data)
+            }
+        }
+    }
+</script>
+```
+3.兄弟组件传值
+
+```js
+//bus.js
+import Vue from 'vue';  
+export default new Vue()
+```
+
+```html
+<template>
+    <div>
+        <h2>1兄弟组件部分</h2>
+    </div>
+</template>
+<script>
+import Bus from '@/config/bus.js';
+    export default{
+        methods:{
+            busFun(data){
+                Bus.$emit('busListen', '向兄弟组件传递信息');
+            }
+        }
+    }
+</script>
+```
+```html
+<template>
+    <div>
+        <h2>2兄弟组件部分</h2>
+    </div>
+</template>
+<script>
+import Bus from '@/config/bus.js';
+    export default{
+        create(){
+            Bus.$on("busListen", target => {
+                console.log(target);
+            });
+        }
+    }
+</script>
+```
+
+
+---
+## **安装报错**
+```
+npm ERR! path C:\hyxwork\workspace-lpcs4\gasSensor-FE\node_modules\fsevents\node_modules\dashdash\node_modules                                                              
+npm ERR! code EPERM                                                                                                                                                         
+npm ERR! errno -4048                                                                                                                                                         
+npm ERR! syscall scandir                                                                                                                                                    
+npm ERR! Error: EPERM: operation not permitted, scandir 'C:\hyxwork\workspace-lpcs4\gasSensor-FE\node_modules\fsevents\node_modules\dashdash\node_modules'                   
+npm ERR!  { Error: EPERM: operation not permitted, scandir 'C:\hyxwork\workspace-lpcs4\gasSensor-FE\node_modules\fsevents\node_modules\dashdash\node_modules'                
+npm ERR!   stack: 'Error: EPERM: operation not permitted, scandir \'C:\\hyxwork\\workspace-lpcs4\\gasSensor-FE\\node_modules\\fsevents\\node_modules\\dashdash\\node_modules\'',np
+m ERR!   errno: -4048,                                                                                                                                                        
+npm ERR!   code: 'EPERM',                                                                                                                                                   
+npm ERR!   syscall: 'scandir',                                                                                                                                               
+npm ERR!   path: 'C:\\hyxwork\\workspace-lpcs4\\gasSensor-FE\\node_modules\\fsevents\\node_modules\\dashdash\\node_modules' }                                                
+npm ERR!                                                                                                                                                                    
+npm ERR! Please try running this command again as root/Administrator.                                                                                                       
+npm ERR! A complete log of this run can be found in:                                                                                                                        
+npm ERR!     C:\Users\hyx\AppData\Roaming\npm-cache\_logs\2018-01-23T03_33_39_709Z-debug.log      
+```
+
+报此错误一般为操作系统的权限问题，使用管理员身份打开cmd。
+
+

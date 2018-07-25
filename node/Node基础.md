@@ -12,3 +12,5 @@ BOM（页面跳转、历史纪录、console.log()）
 
 VNM来安装配置node环境  
 不建议直接使用node的msi
+
+### 使用 nvm 

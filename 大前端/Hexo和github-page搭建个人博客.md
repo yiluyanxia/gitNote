@@ -16,6 +16,19 @@ $ npm install  //安装依赖
 ```
 直接在_post文件夹新建md文件，就是一篇文章了！！！
 
+
+
+```
+$ hexo server  //启动服务打开http://localhost:4000/
+
+```
+
+```
+hexo new [layout] <title>   //发布一篇文章
+
+```
+
+
 先行步骤 -->
 #### 注册GitHub及使用Github Pages
 (改天有心情再记录下)
@@ -49,3 +62,6 @@ deploy:
 ```
 $ hexo deploy
 ```
+
+
+
