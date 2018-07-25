@@ -11,36 +11,34 @@
 npm install -g @angular/cli
 ```
 3. 创建项目
-
+<!-- more -->
 ```
 ng new ng-first
 ```
 4. 启动开发服务器
-
 ```
 cd ng-first
 ng serve --open
 ```
-浏览器自动打开 http://localhost:4200/ ，看到了ng的标，是不是好激动 *（手动滑稽）*。
+  浏览器自动打开 http://localhost:4200/ ，看到了ng的标，是不是好激动 *（手动滑稽）*。
 5. 创建组件  
-   这个操作会直接创建文件，并在根组件配置。
+这个操作会直接创建文件，并在根组件配置。
 ```
 ng g component components/todolist
 ```
 6. 创建服务  
-  保持队形，再来一个。
+保持队形，再来一个。
 ```
 ng g service services/storage
 ```
 7. 小试牛刀， 打个招呼
-   按照国际惯例，先来问个好！  
-   在app.component中插入自定义组件app-todolist，这个名字取决于 todolist.component.ts中selector: 'app-todolist'。
-
+按照国际惯例，先来问个好！  
+在app.component中插入自定义组件app-todolist，这个名字取决于 todolist.component.ts中selector: 'app-todolist'。
 ```html
 <!--app.component.html-->
 <app-todolist></app-todolist>
 ```
-继续，在todolist.component.ts中定义一个变量msg,这种语法是ts的默认套路。 *（手动捂脸，其实我也不太会ts啦）*
+  继续，在todolist.component.ts中定义一个变量msg,这种语法是ts的默认套路。 *（手动捂脸，其实我也不太会ts啦）*
 ```js
 //todolist.component.ts
 export class TodolistComponent implements OnInit {
@@ -53,28 +51,23 @@ export class TodolistComponent implements OnInit {
 
 }
 ```
-在todolist.component.html中绑定数据
+  在todolist.component.html中绑定数据
 ```html
 //todolist.component.html
 <h3> {{msg}} </h3>
 ```
-
-```css
-/*todolist.component.css*/
-h3{
-  text-align: center;
-  color:  #369;
-}
-```
-切到浏览器，噔噔噔噔！
-
-![HellWorld](http://note.youdao.com/favicon.ico)
-
-
-哇咔咔，下面开始进入正题。
+  ```css
+  /*todolist.component.css*/
+  h3{
+    text-align: center;
+    color:  #369;
+  }
+  ```
+  切到浏览器，噔噔噔噔！
+  ![cmder_环境变量_系统](./docs/helloworld.png) 
+  哇咔咔，下面开始进入正题。
 
 
-<!-- more -->
 
 
 ## （二）html和css部分
@@ -149,7 +142,9 @@ body {margin:0;padding:0;font-size:16px;background: #CDCDCD;}
 ```
 
 复制完之后，页面应该长这样。
-![html和css](http://note.youdao.com/favicon.ico)
+  ![html和css](./docs/html和css.png) 
+
+
 好了，以上是不必要的前戏 *（手动滑稽）*。
 
 ## （三）实现ToDoList的功能
@@ -225,7 +220,8 @@ import { FormsModule } from '@angular/forms';  //NgModel lives here
   </ol>
 ```
 能看到添加的事项咯。
-![ngFor循环列表](http://note.youdao.com/favicon.ico)
+![循环进行列表](./docs/循环进行列表.png) 
+
 
 ### 切换事项完成与否以及删除该事项
 绑定changeTodo、deleteTodo事件
@@ -415,4 +411,4 @@ clearData() {
 ### 说在后面的话
 还有拖拽排序的的功能，不写了。
 
-完整的项目在这里[GitHub](https://github.com/yiluyanxia/ng-first)。
+完整的项目在这里[GitHub ng-first](https://github.com/yiluyanxia/ng-first)。

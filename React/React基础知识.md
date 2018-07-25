@@ -168,6 +168,6 @@ this.setState(function(prevState, props) {
 });
 ```
 
-## ++流程++
+## 流程
 
 <Clock/> --> ReactDom.render() --> 构造器 --> render() -(Dom)-> componenDidMount() -(setState())-> tick() -状态改变-> render() --> componenWillUnmount()  --> 计时器停止

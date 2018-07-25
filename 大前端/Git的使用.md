@@ -1,6 +1,6 @@
 ## Git的使用
 
-### ++git 将本地项目添加到GitHub上++
+### git 将本地项目添加到GitHub上
 
 #### 1.在本地项目上右键git bash
 
@@ -52,7 +52,7 @@ $ git push -u origin master //第一次需要输入账号和密码
 
 #### 7.完成了！可以去GitHub上查看了！！
 
-### ++git将项目提交到gh-pages分支上++
+### git将项目提交到gh-pages分支上
 
 
 ```
@@ -68,7 +68,3 @@ $ git remote add origin https://github.com/yiluyanxia/vue-blog-FE.git
 
 $ git push -u origin gh-pages //提交到远程分支
 ```
-
-
-
-![image](http://note.youdao.com/favicon.ico)

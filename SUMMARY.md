@@ -16,13 +16,13 @@
   * [vue笔记](vue/vue笔记（一）.md)
   * [VUEX](vue/vuex.md)
 * UI
-  * [WEB UI 基础](UI/WEB UI 基础.md)
+  * [WEB UI 基础](UI/WEB-UI基础.md)
 * React
   * [React基础知识](React/React基础知识.md)
   * [React实操](React/React实操.md)
   * [音乐播放器--笔记](React/音乐播放器--笔记.md)
- * php
-  * [WEB UI 基础](UI/WEB UI 基础.md)
+* php
+  * [WEB UI 基础](php/php基础知识.md)
  
  
 
