@@ -68,3 +68,19 @@ $ git remote add origin https://github.com/yiluyanxia/vue-blog-FE.git
 
 $ git push -u origin gh-pages //提交到远程分支
 ```
+
+## 将master合并到自己得开发分支上
+```js
+git commit -a  //在合并前，将自己得代码提交到git.确保合并前远程的git上的代码是最新的。
+git checkout master //切换到master主分支上
+git pull  //将最新的代码拉取下来到本地。
+git checkout hyx  //切换到自己的开发分支
+git merge master  //将master合并到自己的开发分支上，这里会产生冲突
+// git rebase master 也可以使用变基，这里会产生冲突
+// 解决冲突
+// 提交自己分支的代码到远程的git上，然后发起合并请求。
+// 以下是master主人操作的
+git checkout master  //切换到主分支
+git merge hyx       //合并工作分支
+git push            // 提交到远程git
+```
