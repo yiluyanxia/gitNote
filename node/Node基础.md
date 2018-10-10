@@ -14,3 +14,10 @@ VNM来安装配置node环境
 不建议直接使用node的msi
 
 ### 使用 nvm 安装node
+
+### 地基
+#### require
+require用来加载一个文件的代码，他是同步的。
+
+#### exports
+exports 和 module.exports 则用来导出代码
