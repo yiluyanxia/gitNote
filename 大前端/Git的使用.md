@@ -84,3 +84,8 @@ git checkout master  //切换到主分支
 git merge hyx       //合并工作分支
 git push            // 提交到远程git
 ```
+## 生成ssh
+```
+打印公钥
+vim ~/.ssh/id_rsa.pub 
+```
